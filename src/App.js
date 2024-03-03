@@ -2,10 +2,13 @@ import { useState, useEffect } from "react";
 
 function App() {
   const [counter, setCounter] = useState(0);
-  const onClick = () => setCounter((current) => current + 1);
+  const [keyword, setKeyword] = useState("");
 
-	//  렌더링때마다 출력될 로그
-  console.log("I run all the time");
+  const onClick = () => setCounter((current) => current + 1);
+  const onChange = (event) => setKeyword(event.target.value);
+
+  //  검색창에 입력할 때마다 출력
+  console.log("search for", keyword);
 
   //  최초 렌더링 시 API 호출
   useEffect(() => {
@@ -14,6 +17,12 @@ function App() {
 
   return (
     <div>
+      <input
+        value={keyword}
+        onChange={onChange}
+        type="text"
+        placeholder="Search here..."
+      />
       <h1>{counter}</h1>
       <button onClick={onClick}>click me</button>
     </div>
