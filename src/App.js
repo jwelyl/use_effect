@@ -22,6 +22,11 @@ function App() {
     console.log("I run when 'keyword' changes.");
   }, [keyword]);
 
+  //  버튼 누르거나, 검색창에 입력할 때마다 출력
+  useEffect(() => {
+    console.log("I run when 'counter' or 'keyword' changes.");
+  }, [counter, keyword]);
+
   return (
     <div>
       <input
