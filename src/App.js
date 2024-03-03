@@ -14,7 +14,7 @@ function App() {
 
   //  검색창에 입력할 때마다 출력
   useEffect(() => {
-    if (keyword !== "") {
+    if (keyword !== "" && keyword.length >= 5) {
       console.log("search for", keyword);
     }
   }, [keyword]);
