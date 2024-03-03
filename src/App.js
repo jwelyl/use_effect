@@ -6,7 +6,7 @@ function App() {
 
   const onClick = () => setCounter((current) => current + 1);
   const onChange = (event) => setKeyword(event.target.value);
-  
+
   //  최초 렌더링 시 API 호출
   useEffect(() => {
     console.log("CALL THE API...");
@@ -14,7 +14,9 @@ function App() {
 
   //  검색창에 입력할 때마다 출력
   useEffect(() => {
-    console.log("search for", keyword);
+    if (keyword !== "") {
+      console.log("search for", keyword);
+    }
   }, [keyword]);
 
   return (
