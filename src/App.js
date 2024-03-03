@@ -7,16 +7,19 @@ function App() {
   const onClick = () => setCounter((current) => current + 1);
   const onChange = (event) => setKeyword(event.target.value);
 
-  //  최초 렌더링 시 API 호출
+  //  최초 렌더링 시 로그
   useEffect(() => {
-    console.log("CALL THE API...");
+    console.log("I run only once.");
   }, []);
+
+  // 버튼 누를 때마다 출력
+  useEffect(() => {
+    console.log("I run when 'counter' changes.");
+  }, [counter]);
 
   //  검색창에 입력할 때마다 출력
   useEffect(() => {
-    if (keyword !== "" && keyword.length >= 5) {
-      console.log("search for", keyword);
-    }
+    console.log("I run when 'keyword' changes.");
   }, [keyword]);
 
   return (
